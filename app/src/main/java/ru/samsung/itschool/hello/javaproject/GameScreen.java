@@ -14,10 +14,17 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
+import ru.samsung.itschool.hello.javaproject.classes.Gladiator;
+import ru.samsung.itschool.hello.javaproject.classes.GladiatorList;
+
 public class GameScreen extends AppCompatActivity {
 
     Gladiator character;
     Gladiator enemy;
+
+    GladiatorList enemies;
+
+    int stage = 1;
 
     TextView name;
     TextView health;
@@ -45,6 +52,7 @@ public class GameScreen extends AppCompatActivity {
 
         prepareSettings();
         prepareHandlers();
+        prepareCharacters();
 
         character = new Gladiator("Spartacus", 100, 5, 10, 0);
         enemy = new Gladiator("Corvus", 100, 10, 10, 100);
@@ -96,6 +104,10 @@ public class GameScreen extends AppCompatActivity {
                 checkEndGame();
             }
         });
+    }
+
+    void prepareCharacters() {
+
     }
 
     void checkEndGame() {

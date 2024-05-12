@@ -1,4 +1,4 @@
-package ru.samsung.itschool.hello.javaproject;
+package ru.samsung.itschool.hello.javaproject.classes;
 
 public class Gladiator {
     private String name;

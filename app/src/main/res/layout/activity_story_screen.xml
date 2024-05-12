@@ -18,13 +18,24 @@
             android:id="@+id/storyImg"
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_weight="4"
-            app:srcCompat="@drawable/coliseum" />
+            android:layout_weight="4" />
+
+        <TextView
+            android:id="@+id/storyTitle"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:fontFamily="@font/aclonica"
+            android:gravity="center"
+            android:text="Title"
+            android:textAlignment="center"
+            android:textColor="#FFFFFF"
+            android:textSize="18sp" />
 
         <ScrollView
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_weight="3">
+            android:layout_weight="4">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -34,8 +45,13 @@
                 <TextView
                     android:id="@+id/storyText"
                     android:layout_width="match_parent"
-                    android:layout_height="200dp"
-                    android:text="TextView" />
+                    android:layout_height="230dp"
+                    android:fontFamily="@font/aclonica"
+                    android:text="Спартак, молодой и сильный раб, слышит о турнире, который организует жестокий и влиятельный римский сенатор. Раздираемый желанием свободы для себя и своих товарищей, он решает участвовать в турнире в надежде на победу и шанс начать переговоры о своей свободе."
+                    android:textAlignment="textStart"
+                    android:textColor="#FFFFFF"
+                    android:textSize="16sp"
+                    app:lineHeight="20dp" />
             </LinearLayout>
         </ScrollView>
 

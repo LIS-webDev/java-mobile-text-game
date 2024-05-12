@@ -11,9 +11,13 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
+import ru.samsung.itschool.hello.javaproject.classes.Conclusion;
+import ru.samsung.itschool.hello.javaproject.classes.ConclusionList;
+
 public class LoseScreen extends AppCompatActivity {
 
     Button goBackButton;
+    ConclusionList conclusions;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,6 +32,12 @@ public class LoseScreen extends AppCompatActivity {
 
         goBackButton = findViewById(R.id.goback1);
 
+        prepareConclusions();
+
+        for (Conclusion conclusion : conclusions.getConclusions()) {
+
+        }
+
         goBackButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -36,5 +46,24 @@ public class LoseScreen extends AppCompatActivity {
                 startActivity(gameIntent);
             }
         });
+    }
+
+    void prepareConclusions() {
+        conclusions.addConclusion(
+                "Печальная Утрата",
+                "Смерть Спартака на арене охватывает все сердца тяжелым горем. Его жертва становится символом отваги и решимости в борьбе за свободу. Рабы, гладиаторы и союзники скорбят об ушедшем герое, мечтая продолжить его дело."
+        );
+        conclusions.addConclusion(
+                "Возрождение Спартака в Легенде",
+                "Смелый поединок, в котором Спартак погиб, вписывается в легенду его жизни и борьбы. Его имя становится символом сопротивления и силы, вдохновляя будущие поколения рабов и борцов за свободу бороться за свои права и достоинство смелость."
+        );
+        conclusions.addConclusion(
+                "Месть и Следующий Шаг",
+                "Смерть Спартака не остается без ответа. Его товарищи и последователи клянутся отомстить за убитого героя и продолжить бороться за свободу, которую он так страстно отстаивал. Их гнев и решимость растет, а его смерть лишь усиливает их решимость продолжить борьбу."
+        );
+        conclusions.addConclusion(
+                "Наследие Спартака",
+                "Хотя тело Спартака может быть погребено, его дух живет в сердцах тех, кто верит в идеалы свободы и справедливости. Его смерть становится толчком к объединению и укреплению борьбы за освобождение рабов и противостоянию угнетению. его смерть положит начало новому этапу в оппозиции к системе рабства и угнетения."
+        );
     }
 }

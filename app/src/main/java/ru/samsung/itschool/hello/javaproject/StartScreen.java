@@ -11,9 +11,12 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
+import ru.samsung.itschool.hello.javaproject.classes.Settings;
+
 public class StartScreen extends AppCompatActivity {
 
     Button startGameButton;
+    Settings settings;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,6 +36,8 @@ public class StartScreen extends AppCompatActivity {
             public void onClick(View v) {
                 // Создание Intent для перехода на экран с основной игрой (GameActivity)
                 Intent gameIntent = new Intent(StartScreen.this, StoryScreen.class);
+                settings = new Settings();
+                gameIntent.putExtra("settings", settings);
                 startActivity(gameIntent);
             }
         });
