@@ -46,12 +46,13 @@
             android:textColor="#FFFFFF" />
 
         <TextView
-            android:id="@+id/mana"
+            android:id="@+id/stamina"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:fontFamily="@font/aclonica"
-            android:text="MP: "
+            android:text="SP: "
+            android:textAllCaps="false"
             android:textColor="#FFFFFF" />
     </LinearLayout>
 
@@ -117,13 +118,5 @@
             android:text="BLOCK"
             android:textSize="32sp" />
 
-        <Button
-            android:id="@+id/magicBtn"
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1"
-            android:fontFamily="@font/aclonica"
-            android:text="MAGIC"
-            android:textSize="32sp" />
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

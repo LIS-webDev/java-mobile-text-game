@@ -18,4 +18,8 @@ public class GladiatorList
     public List<Gladiator> getGladiators() {
         return gladiators;
     }
+
+    public Gladiator getGladiator(int index) {
+        return gladiators.get(index);
+    }
 }

@@ -11,9 +11,11 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
+import ru.samsung.itschool.hello.javaproject.classes.Settings;
 public class WinScreen extends AppCompatActivity {
 
-    Button goBackButton;
+    Button goNextBtn;
+    Settings settings;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,13 +28,28 @@ public class WinScreen extends AppCompatActivity {
             return insets;
         });
 
-        goBackButton = findViewById(R.id.goback);
+        prepareSettings();
+        prepareHandlers();
+    }
 
-        goBackButton.setOnClickListener(new View.OnClickListener() {
+    void prepareSettings() {
+        goNextBtn = findViewById(R.id.gonext);
+
+        Bundle arguments = getIntent().getExtras();
+        settings = new Settings();
+        if(arguments!=null){
+            settings = (Settings) arguments.getSerializable("settings");
+        }
+    }
+
+    void prepareHandlers() {
+        goNextBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                settings.nextStage();
                 // Создание Intent для перехода на экран с основной игрой (GameActivity)
-                Intent gameIntent = new Intent(WinScreen.this, StartScreen.class);
+                Intent gameIntent = new Intent(WinScreen.this, StoryScreen.class);
+                gameIntent.putExtra("settings", settings);
                 startActivity(gameIntent);
             }
         });

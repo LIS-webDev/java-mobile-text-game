@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -17,7 +18,10 @@ import ru.samsung.itschool.hello.javaproject.classes.ConclusionList;
 public class LoseScreen extends AppCompatActivity {
 
     Button goBackButton;
+    TextView conclusionText;
+    TextView conclusionTitle;
     ConclusionList conclusions;
+    Conclusion conclusion;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,14 +34,22 @@ public class LoseScreen extends AppCompatActivity {
             return insets;
         });
 
-        goBackButton = findViewById(R.id.goback1);
-
+        prepareSettings();
+        prepareHandlers();
         prepareConclusions();
 
-        for (Conclusion conclusion : conclusions.getConclusions()) {
+        conclusion = conclusions.getRandomConclusion();
+        conclusionTitle.setText(conclusion.getTitle());
+        conclusionText.setText(conclusion.getText());
+    }
 
-        }
+    void prepareSettings() {
+        goBackButton = findViewById(R.id.goback1);
+        conclusionText = findViewById(R.id.conclusionText);
+        conclusionTitle = findViewById(R.id.conclusionTitle);
+    }
 
+    void prepareHandlers() {
         goBackButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
