@@ -69,6 +69,7 @@ public class GameScreen extends AppCompatActivity {
         setHealth(enemy.getHealth());
         setDamage(enemy.getAttack());
         setArmor(enemy.getArmor());
+        setStamina(0);
     }
 
     void prepareSettings() {
@@ -210,6 +211,6 @@ public class GameScreen extends AppCompatActivity {
     }
 
     void setStamina(int num) {
-        mana.setText(String.format("MP: %d", num));
+        mana.setText(String.format("SP: %d", num));
     }
 }
