@@ -34,7 +34,7 @@ public class GameScreen extends AppCompatActivity {
     TextView health;
     TextView damage;
     TextView armor;
-    TextView mana;
+    TextView stamina;
 
     ImageView enemyIcon;
     TextView description;
@@ -69,7 +69,7 @@ public class GameScreen extends AppCompatActivity {
         setHealth(enemy.getHealth());
         setDamage(enemy.getAttack());
         setArmor(enemy.getArmor());
-        setStamina(0);
+        setStamina(enemy.getStamina());
     }
 
     void prepareSettings() {
@@ -77,7 +77,7 @@ public class GameScreen extends AppCompatActivity {
         health = findViewById(R.id.health);
         damage = findViewById(R.id.damage);
         armor = findViewById(R.id.armor);
-        mana = findViewById(R.id.stamina);
+        stamina = findViewById(R.id.stamina);
         attackBtn = findViewById(R.id.attackBtn);
         blockBtn = findViewById(R.id.blockBtn);
         description = findViewById(R.id.description);
@@ -123,6 +123,8 @@ public class GameScreen extends AppCompatActivity {
                 enemy.attack(character);
                 if (character.blocked()) {
                     description.append("Вы заблокировали удар врага.\n");
+                } else {
+                    description.append("У вас не получилось заблокировать удар врага. Вы получили " + enemy.getAttack()  + " урона\n");
                 }
                 checkEndGame();
             }
@@ -211,6 +213,6 @@ public class GameScreen extends AppCompatActivity {
     }
 
     void setStamina(int num) {
-        mana.setText(String.format("SP: %d", num));
+        stamina.setText(String.format("SP: %d", num));
     }
 }

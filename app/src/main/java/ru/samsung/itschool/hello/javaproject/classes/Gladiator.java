@@ -11,6 +11,7 @@ public class Gladiator {
     private int attack;
     private int armor;
     private int evasion;
+    private int stamina;
     private boolean evadeStatus = false;
     private boolean blockStatus = false;
     private String move = "";
@@ -21,6 +22,7 @@ public class Gladiator {
         this.attack = attack;
         this.armor = armor;
         this.evasion = evasion;
+        this.stamina = 0;
     }
 
     public void attack(Gladiator opponent) {
@@ -46,13 +48,19 @@ public class Gladiator {
         int newAttack = this.attack;
         Random rand = new Random();
         int randomNum = rand.nextInt(100);
-        if (Objects.equals(this.leftHand, "shield") || Objects.equals(this.rightHand, "shield")) {
-            int opponentEvasion = opponent.evasion + 20;
-            if (opponentEvasion >= randomNum) {
+        if (Objects.equals(opponent.move, "block")) {
+            if (opponent.evasion + 50 >= randomNum) {
                 opponent.blockStatus = true;
             }
-        } else if (opponent.evasion >= randomNum) {
-            opponent.evadeStatus = true;
+        } else {
+            if (Objects.equals(this.leftHand, "shield") || Objects.equals(this.rightHand, "shield")) {
+                int opponentEvasion = opponent.evasion + 20;
+                if (opponentEvasion >= randomNum) {
+                    opponent.blockStatus = true;
+                }
+            } else if (opponent.evasion >= randomNum) {
+                opponent.evadeStatus = true;
+            }
         }
         if (opponent.evaded() || opponent.blocked()) {
             return 0;
@@ -147,5 +155,13 @@ public class Gladiator {
 
     public void addArmor(int armor) {
         this.armor += armor;
+    }
+
+    public int getStamina() {
+        return stamina;
+    }
+
+    public void setStamina(int stamina) {
+        this.stamina = stamina;
     }
 }
